@@ -1,0 +1,17 @@
+26-02-03 01:57:00 - ArithmaticApp - DEBUG - Adding 10+15 = 25
+26-02-03 01:57:41 - ArithmaticApp - DEBUG - Adding 10+15 = 25
+26-02-03 01:57:41 - ArithmaticApp - DEBUG - Adding 115-10 = 105
+26-02-03 01:57:41 - ArithmaticApp - DEBUG - Adding 10*5 = 50
+26-02-03 01:57:41 - ArithmaticApp - DEBUG - Adding 20/10 = 2.0
+26-02-03 02:00:42 - ArithmaticApp - DEBUG - Adding 10+15 = 25
+26-02-03 02:00:42 - ArithmaticApp - DEBUG - Adding 115-10 = 105
+26-02-03 02:00:42 - ArithmaticApp - DEBUG - Adding 10*5 = 50
+26-02-03 02:00:42 - ArithmaticApp - DEBUG - Adding 20/10 = 2.0
+26-02-03 02:00:52 - ArithmaticApp - DEBUG - Adding 10+15 = 25
+26-02-03 02:00:52 - ArithmaticApp - DEBUG - Adding 115-10 = 105
+26-02-03 02:00:52 - ArithmaticApp - DEBUG - Adding 10*5 = 50
+26-02-03 02:00:52 - ArithmaticApp - DEBUG - Adding 20/10 = 2.0
+26-02-03 02:01:34 - ArithmaticApp - DEBUG - Adding 10+15 = 25
+26-02-03 02:01:34 - ArithmaticApp - DEBUG - Substracting 115-10 = 105
+26-02-03 02:01:34 - ArithmaticApp - DEBUG - Multiplication 10*5 = 50
+26-02-03 02:01:34 - ArithmaticApp - DEBUG - Dividing 20/10 = 2.0
