@@ -1,0 +1,1275 @@
+
+================================================================================
+URL: https://reference.langchain.com/python/deepagents/
+================================================================================
+Deep Agents overview | LangChain Reference
+Skip to content
+LangChain Reference
+Deep Agents overview
+Initializing search
+langchain-ai/docs
+Get started
+LangChain
+LangGraph
+Deep Agents
+Integrations
+LangSmith
+LangChain Reference
+langchain-ai/docs
+Get started
+LangChain
+LangGraph
+Deep Agents
+Deep Agents
+create_deep_agent
+Modules
+Modules
+Backends
+Middleware
+Integrations
+LangSmith
+Deep Agents
+¶
+Welcome to the
+Deep Agents
+reference documentation!
+Reference docs
+This page contains
+reference documentation
+for Deep Agents. See
+the docs
+for conceptual guides, tutorials, and examples.
+create_deep_agent
+Factory function to create a deep agent with planning, filesystem, and subagent capabilities.
+Reference
+Backends
+Pluggable storage backends for file operations across different storage types.
+Reference
+Middleware
+Composable middleware components that add capabilities to agents.
+Reference
+Back to top
+
+
+================================================================================
+URL: https://docs.langchain.com/oss/python/releases/changelog
+================================================================================
+Changelog - Docs by LangChain
+Skip to main content
+Docs by LangChain
+home page
+LangChain + LangGraph
+Search...
+⌘
+K
+Ask AI
+GitHub
+Try LangSmith
+Try LangSmith
+Search...
+Navigation
+Releases
+Changelog
+LangChain
+LangGraph
+Deep Agents
+Integrations
+Learn
+Reference
+Contribute
+Python
+Overview
+Reference
+LangChain SDK
+LangGraph SDK
+Integrations
+Deep Agents
+Errors
+Reference
+Releases
+Versioning
+Changelog
+Releases
+Migration guides
+Policies
+Release policy
+Security
+Filters
+Clear
+langchain
+integrations
+langgraph
+Releases
+Changelog
+Copy page
+Log of updates and improvements to our Python packages
+Copy page
+Subscribe
+: Our changelog includes an
+RSS feed
+that can integrate with
+Slack
+,
+email
+, Discord bots like
+Readybot
+or
+RSS Feeds to Discord Bot
+, and other subscription tools.
+​
+Dec 15, 2025
+​
+langchain
+v1.2.0
+create_agent
+: Simplified support for provider-specific tool parameters and definitions via a new
+extras
+attribute on
+tools
+. Examples:
+Provider-specific configuration such as Anthropic’s
+programmatic tool calling
+and
+tool search
+.
+Built-in tools that are executed client-side, as supported by
+Anthropic
+,
+OpenAI
+, and other providers.
+Support for strict schema-adherence in agent
+response_format
+(see
+ProviderStrategy
+docs).
+​
+Dec 8, 2025
+​
+langchain-google-genai
+v4.0.0
+We’ve re-written the Google GenAI integration to use Google’s consolidated Generative AI SDK, which provides access to the Gemini API and Vertex AI Platform under the same interface. This includes minimal breaking changes as well as deprecated packages in
+langchain-google-vertexai
+.
+See the full
+release notes and migration guide
+for details.
+​
+Nov 25, 2025
+​
+langchain
+v1.1.0
+Model profiles
+: Chat models now expose supported features and capabilities through a
+.profile
+attribute. These data are derived from
+models.dev
+, an open source project providing model capability data.
+Summarization middleware
+: Updated to support flexible trigger points using model profiles for context-aware summarization.
+Structured output
+:
+ProviderStrategy
+support (native structured output) can now be inferred from model profiles.
+SystemMessage
+for
+create_agent
+: Support for passing
+SystemMessage
+instances directly to
+create_agent
+’s
+system_prompt
+parameter, enabling advanced features like cache control and structured content blocks.
+Model retry middleware
+: New middleware for automatically retrying failed model calls with configurable exponential backoff.
+Content moderation middleware
+: OpenAI content moderation middleware for detecting and handling unsafe content in agent interactions. Supports checking user input, model output, and tool results.
+​
+Oct 20, 2025
+​
+v1.0.0
+​
+langchain
+Release notes
+Migration guide
+​
+langgraph
+Release notes
+Migration guide
+If you encounter any issues or have feedback, please
+open an issue
+so we can improve. To view v0.x documentation,
+go to the archived content
+and
+API reference
+.
+Edit this page on GitHub
+or
+file an issue
+.
+Connect these docs
+to Claude, VSCode, and more via MCP for real-time answers.
+Was this page helpful?
+Yes
+No
+Versioning
+Previous
+What's new in LangChain v1
+Next
+⌘
+I
+Docs by LangChain
+home page
+github
+x
+linkedin
+youtube
+Resources
+Forum
+Changelog
+LangChain Academy
+Trust Center
+Company
+About
+Careers
+Blog
+github
+x
+linkedin
+youtube
+Powered by
+
+
+================================================================================
+URL: https://python.langchain.com/v0.2/docs/introduction/
+================================================================================
+LangChain overview - Docs by LangChain
+Skip to main content
+Docs by LangChain
+home page
+LangChain + LangGraph
+Search...
+⌘
+K
+Ask AI
+GitHub
+Try LangSmith
+Try LangSmith
+Search...
+Navigation
+LangChain overview
+LangChain
+LangGraph
+Deep Agents
+Integrations
+Learn
+Reference
+Contribute
+Python
+Overview
+Get started
+Install
+Quickstart
+Changelog
+Philosophy
+Core components
+Agents
+Models
+Messages
+Tools
+Short-term memory
+Streaming
+Structured output
+Middleware
+Overview
+Built-in middleware
+Custom middleware
+Advanced usage
+Guardrails
+Runtime
+Context engineering
+Model Context Protocol (MCP)
+Human-in-the-loop
+Multi-agent
+Retrieval
+Long-term memory
+Agent development
+LangSmith Studio
+Test
+Agent Chat UI
+Deploy with LangSmith
+Deployment
+Observability
+On this page
+Create an agent
+Core benefits
+LangChain overview
+Copy page
+LangChain is an open source framework with a pre-built agent architecture and integrations for any model or tool — so you can build agents that adapt as fast as the ecosystem evolves
+Copy page
+LangChain is the easiest way to start building agents and applications powered by LLMs. With under 10 lines of code, you can connect to OpenAI, Anthropic, Google, and
+more
+. LangChain provides a pre-built agent architecture and model integrations to help you get started quickly and seamlessly incorporate LLMs into your agents and applications.
+We recommend you use LangChain if you want to quickly build agents and autonomous applications. Use
+LangGraph
+, our low-level agent orchestration framework and runtime, when you have more advanced needs that require a combination of deterministic and agentic workflows, heavy customization, and carefully controlled latency.
+LangChain
+agents
+are built on top of LangGraph in order to provide durable execution, streaming, human-in-the-loop, persistence, and more. You do not need to know LangGraph for basic LangChain agent usage.
+​
+Create an agent
+Copy
+# pip install -qU langchain "langchain[anthropic]"
+from
+langchain.agents
+import
+create_agent
+def
+get_weather
+(
+city
+:
+str
+) ->
+str
+:
+"""Get weather for a given city."""
+return
+f
+"It's always sunny in
+{
+city
+}
+!"
+agent
+=
+create_agent(
+model
+=
+"claude-sonnet-4-5-20250929"
+,
+tools
+=
+[get_weather],
+system_prompt
+=
+"You are a helpful assistant"
+,
+)
+# Run the agent
+agent.invoke(
+{
+"messages"
+: [{
+"role"
+:
+"user"
+,
+"content"
+:
+"what is the weather in sf"
+}]}
+)
+See the
+Installation instructions
+and
+Quickstart guide
+to get started building your own agents and applications with LangChain.
+​
+Core benefits
+Standard model interface
+Different providers have unique APIs for interacting with models, including the format of responses. LangChain standardizes how you interact with models so that you can seamlessly swap providers and avoid lock-in.
+Learn more
+Easy to use, highly flexible agent
+LangChain’s agent abstraction is designed to be easy to get started with, letting you build a simple agent in under 10 lines of code. But it also provides enough flexibility to allow you to do all the context engineering your heart desires.
+Learn more
+Built on top of LangGraph
+LangChain’s agents are built on top of LangGraph. This allows us to take advantage of LangGraph’s durable execution, human-in-the-loop support, persistence, and more.
+Learn more
+Debug with LangSmith
+Gain deep visibility into complex agent behavior with visualization tools that trace execution paths, capture state transitions, and provide detailed runtime metrics.
+Learn more
+Edit this page on GitHub
+or
+file an issue
+.
+Connect these docs
+to Claude, VSCode, and more via MCP for real-time answers.
+Was this page helpful?
+Yes
+No
+Install LangChain
+Next
+⌘
+I
+Docs by LangChain
+home page
+github
+x
+linkedin
+youtube
+Resources
+Forum
+Changelog
+LangChain Academy
+Trust Center
+Company
+About
+Careers
+Blog
+github
+x
+linkedin
+youtube
+Powered by
+
+
+================================================================================
+URL: https://reference.langchain.com/python/deepagents/
+================================================================================
+Deep Agents overview | LangChain Reference
+Skip to content
+LangChain Reference
+Deep Agents overview
+Initializing search
+langchain-ai/docs
+Get started
+LangChain
+LangGraph
+Deep Agents
+Integrations
+LangSmith
+LangChain Reference
+langchain-ai/docs
+Get started
+LangChain
+LangGraph
+Deep Agents
+Deep Agents
+create_deep_agent
+Modules
+Modules
+Backends
+Middleware
+Integrations
+LangSmith
+Deep Agents
+¶
+Welcome to the
+Deep Agents
+reference documentation!
+Reference docs
+This page contains
+reference documentation
+for Deep Agents. See
+the docs
+for conceptual guides, tutorials, and examples.
+create_deep_agent
+Factory function to create a deep agent with planning, filesystem, and subagent capabilities.
+Reference
+Backends
+Pluggable storage backends for file operations across different storage types.
+Reference
+Middleware
+Composable middleware components that add capabilities to agents.
+Reference
+Back to top
+
+
+================================================================================
+URL: https://docs.langchain.com/oss/python/releases/changelog
+================================================================================
+Changelog - Docs by LangChain
+Skip to main content
+Docs by LangChain
+home page
+LangChain + LangGraph
+Search...
+⌘
+K
+Ask AI
+GitHub
+Try LangSmith
+Try LangSmith
+Search...
+Navigation
+Releases
+Changelog
+LangChain
+LangGraph
+Deep Agents
+Integrations
+Learn
+Reference
+Contribute
+Python
+Overview
+Reference
+LangChain SDK
+LangGraph SDK
+Integrations
+Deep Agents
+Errors
+Reference
+Releases
+Versioning
+Changelog
+Releases
+Migration guides
+Policies
+Release policy
+Security
+Filters
+Clear
+langchain
+integrations
+langgraph
+Releases
+Changelog
+Copy page
+Log of updates and improvements to our Python packages
+Copy page
+Subscribe
+: Our changelog includes an
+RSS feed
+that can integrate with
+Slack
+,
+email
+, Discord bots like
+Readybot
+or
+RSS Feeds to Discord Bot
+, and other subscription tools.
+​
+Dec 15, 2025
+​
+langchain
+v1.2.0
+create_agent
+: Simplified support for provider-specific tool parameters and definitions via a new
+extras
+attribute on
+tools
+. Examples:
+Provider-specific configuration such as Anthropic’s
+programmatic tool calling
+and
+tool search
+.
+Built-in tools that are executed client-side, as supported by
+Anthropic
+,
+OpenAI
+, and other providers.
+Support for strict schema-adherence in agent
+response_format
+(see
+ProviderStrategy
+docs).
+​
+Dec 8, 2025
+​
+langchain-google-genai
+v4.0.0
+We’ve re-written the Google GenAI integration to use Google’s consolidated Generative AI SDK, which provides access to the Gemini API and Vertex AI Platform under the same interface. This includes minimal breaking changes as well as deprecated packages in
+langchain-google-vertexai
+.
+See the full
+release notes and migration guide
+for details.
+​
+Nov 25, 2025
+​
+langchain
+v1.1.0
+Model profiles
+: Chat models now expose supported features and capabilities through a
+.profile
+attribute. These data are derived from
+models.dev
+, an open source project providing model capability data.
+Summarization middleware
+: Updated to support flexible trigger points using model profiles for context-aware summarization.
+Structured output
+:
+ProviderStrategy
+support (native structured output) can now be inferred from model profiles.
+SystemMessage
+for
+create_agent
+: Support for passing
+SystemMessage
+instances directly to
+create_agent
+’s
+system_prompt
+parameter, enabling advanced features like cache control and structured content blocks.
+Model retry middleware
+: New middleware for automatically retrying failed model calls with configurable exponential backoff.
+Content moderation middleware
+: OpenAI content moderation middleware for detecting and handling unsafe content in agent interactions. Supports checking user input, model output, and tool results.
+​
+Oct 20, 2025
+​
+v1.0.0
+​
+langchain
+Release notes
+Migration guide
+​
+langgraph
+Release notes
+Migration guide
+If you encounter any issues or have feedback, please
+open an issue
+so we can improve. To view v0.x documentation,
+go to the archived content
+and
+API reference
+.
+Edit this page on GitHub
+or
+file an issue
+.
+Connect these docs
+to Claude, VSCode, and more via MCP for real-time answers.
+Was this page helpful?
+Yes
+No
+Versioning
+Previous
+What's new in LangChain v1
+Next
+⌘
+I
+Docs by LangChain
+home page
+github
+x
+linkedin
+youtube
+Resources
+Forum
+Changelog
+LangChain Academy
+Trust Center
+Company
+About
+Careers
+Blog
+github
+x
+linkedin
+youtube
+Powered by
+
+
+================================================================================
+URL: https://python.langchain.com/v0.2/docs/introduction/
+================================================================================
+LangChain overview - Docs by LangChain
+Skip to main content
+Docs by LangChain
+home page
+LangChain + LangGraph
+Search...
+⌘
+K
+Ask AI
+GitHub
+Try LangSmith
+Try LangSmith
+Search...
+Navigation
+LangChain overview
+LangChain
+LangGraph
+Deep Agents
+Integrations
+Learn
+Reference
+Contribute
+Python
+Overview
+Get started
+Install
+Quickstart
+Changelog
+Philosophy
+Core components
+Agents
+Models
+Messages
+Tools
+Short-term memory
+Streaming
+Structured output
+Middleware
+Overview
+Built-in middleware
+Custom middleware
+Advanced usage
+Guardrails
+Runtime
+Context engineering
+Model Context Protocol (MCP)
+Human-in-the-loop
+Multi-agent
+Retrieval
+Long-term memory
+Agent development
+LangSmith Studio
+Test
+Agent Chat UI
+Deploy with LangSmith
+Deployment
+Observability
+On this page
+Create an agent
+Core benefits
+LangChain overview
+Copy page
+LangChain is an open source framework with a pre-built agent architecture and integrations for any model or tool — so you can build agents that adapt as fast as the ecosystem evolves
+Copy page
+LangChain is the easiest way to start building agents and applications powered by LLMs. With under 10 lines of code, you can connect to OpenAI, Anthropic, Google, and
+more
+. LangChain provides a pre-built agent architecture and model integrations to help you get started quickly and seamlessly incorporate LLMs into your agents and applications.
+We recommend you use LangChain if you want to quickly build agents and autonomous applications. Use
+LangGraph
+, our low-level agent orchestration framework and runtime, when you have more advanced needs that require a combination of deterministic and agentic workflows, heavy customization, and carefully controlled latency.
+LangChain
+agents
+are built on top of LangGraph in order to provide durable execution, streaming, human-in-the-loop, persistence, and more. You do not need to know LangGraph for basic LangChain agent usage.
+​
+Create an agent
+Copy
+# pip install -qU langchain "langchain[anthropic]"
+from
+langchain.agents
+import
+create_agent
+def
+get_weather
+(
+city
+:
+str
+) ->
+str
+:
+"""Get weather for a given city."""
+return
+f
+"It's always sunny in
+{
+city
+}
+!"
+agent
+=
+create_agent(
+model
+=
+"claude-sonnet-4-5-20250929"
+,
+tools
+=
+[get_weather],
+system_prompt
+=
+"You are a helpful assistant"
+,
+)
+# Run the agent
+agent.invoke(
+{
+"messages"
+: [{
+"role"
+:
+"user"
+,
+"content"
+:
+"what is the weather in sf"
+}]}
+)
+See the
+Installation instructions
+and
+Quickstart guide
+to get started building your own agents and applications with LangChain.
+​
+Core benefits
+Standard model interface
+Different providers have unique APIs for interacting with models, including the format of responses. LangChain standardizes how you interact with models so that you can seamlessly swap providers and avoid lock-in.
+Learn more
+Easy to use, highly flexible agent
+LangChain’s agent abstraction is designed to be easy to get started with, letting you build a simple agent in under 10 lines of code. But it also provides enough flexibility to allow you to do all the context engineering your heart desires.
+Learn more
+Built on top of LangGraph
+LangChain’s agents are built on top of LangGraph. This allows us to take advantage of LangGraph’s durable execution, human-in-the-loop support, persistence, and more.
+Learn more
+Debug with LangSmith
+Gain deep visibility into complex agent behavior with visualization tools that trace execution paths, capture state transitions, and provide detailed runtime metrics.
+Learn more
+Edit this page on GitHub
+or
+file an issue
+.
+Connect these docs
+to Claude, VSCode, and more via MCP for real-time answers.
+Was this page helpful?
+Yes
+No
+Install LangChain
+Next
+⌘
+I
+Docs by LangChain
+home page
+github
+x
+linkedin
+youtube
+Resources
+Forum
+Changelog
+LangChain Academy
+Trust Center
+Company
+About
+Careers
+Blog
+github
+x
+linkedin
+youtube
+Powered by
+
+
+================================================================================
+URL: https://reference.langchain.com/python/deepagents/
+================================================================================
+Deep Agents overview | LangChain Reference
+Skip to content
+LangChain Reference
+Deep Agents overview
+Initializing search
+langchain-ai/docs
+Get started
+LangChain
+LangGraph
+Deep Agents
+Integrations
+LangSmith
+LangChain Reference
+langchain-ai/docs
+Get started
+LangChain
+LangGraph
+Deep Agents
+Deep Agents
+create_deep_agent
+Modules
+Modules
+Backends
+Middleware
+Integrations
+LangSmith
+Deep Agents
+¶
+Welcome to the
+Deep Agents
+reference documentation!
+Reference docs
+This page contains
+reference documentation
+for Deep Agents. See
+the docs
+for conceptual guides, tutorials, and examples.
+create_deep_agent
+Factory function to create a deep agent with planning, filesystem, and subagent capabilities.
+Reference
+Backends
+Pluggable storage backends for file operations across different storage types.
+Reference
+Middleware
+Composable middleware components that add capabilities to agents.
+Reference
+Back to top
+
+
+================================================================================
+URL: https://docs.langchain.com/oss/python/releases/changelog
+================================================================================
+Changelog - Docs by LangChain
+Skip to main content
+Docs by LangChain
+home page
+LangChain + LangGraph
+Search...
+⌘
+K
+Ask AI
+GitHub
+Try LangSmith
+Try LangSmith
+Search...
+Navigation
+Releases
+Changelog
+LangChain
+LangGraph
+Deep Agents
+Integrations
+Learn
+Reference
+Contribute
+Python
+Overview
+Reference
+LangChain SDK
+LangGraph SDK
+Integrations
+Deep Agents
+Errors
+Reference
+Releases
+Versioning
+Changelog
+Releases
+Migration guides
+Policies
+Release policy
+Security
+Filters
+Clear
+langchain
+integrations
+langgraph
+Releases
+Changelog
+Copy page
+Log of updates and improvements to our Python packages
+Copy page
+Subscribe
+: Our changelog includes an
+RSS feed
+that can integrate with
+Slack
+,
+email
+, Discord bots like
+Readybot
+or
+RSS Feeds to Discord Bot
+, and other subscription tools.
+​
+Dec 15, 2025
+​
+langchain
+v1.2.0
+create_agent
+: Simplified support for provider-specific tool parameters and definitions via a new
+extras
+attribute on
+tools
+. Examples:
+Provider-specific configuration such as Anthropic’s
+programmatic tool calling
+and
+tool search
+.
+Built-in tools that are executed client-side, as supported by
+Anthropic
+,
+OpenAI
+, and other providers.
+Support for strict schema-adherence in agent
+response_format
+(see
+ProviderStrategy
+docs).
+​
+Dec 8, 2025
+​
+langchain-google-genai
+v4.0.0
+We’ve re-written the Google GenAI integration to use Google’s consolidated Generative AI SDK, which provides access to the Gemini API and Vertex AI Platform under the same interface. This includes minimal breaking changes as well as deprecated packages in
+langchain-google-vertexai
+.
+See the full
+release notes and migration guide
+for details.
+​
+Nov 25, 2025
+​
+langchain
+v1.1.0
+Model profiles
+: Chat models now expose supported features and capabilities through a
+.profile
+attribute. These data are derived from
+models.dev
+, an open source project providing model capability data.
+Summarization middleware
+: Updated to support flexible trigger points using model profiles for context-aware summarization.
+Structured output
+:
+ProviderStrategy
+support (native structured output) can now be inferred from model profiles.
+SystemMessage
+for
+create_agent
+: Support for passing
+SystemMessage
+instances directly to
+create_agent
+’s
+system_prompt
+parameter, enabling advanced features like cache control and structured content blocks.
+Model retry middleware
+: New middleware for automatically retrying failed model calls with configurable exponential backoff.
+Content moderation middleware
+: OpenAI content moderation middleware for detecting and handling unsafe content in agent interactions. Supports checking user input, model output, and tool results.
+​
+Oct 20, 2025
+​
+v1.0.0
+​
+langchain
+Release notes
+Migration guide
+​
+langgraph
+Release notes
+Migration guide
+If you encounter any issues or have feedback, please
+open an issue
+so we can improve. To view v0.x documentation,
+go to the archived content
+and
+API reference
+.
+Edit this page on GitHub
+or
+file an issue
+.
+Connect these docs
+to Claude, VSCode, and more via MCP for real-time answers.
+Was this page helpful?
+Yes
+No
+Versioning
+Previous
+What's new in LangChain v1
+Next
+⌘
+I
+Docs by LangChain
+home page
+github
+x
+linkedin
+youtube
+Resources
+Forum
+Changelog
+LangChain Academy
+Trust Center
+Company
+About
+Careers
+Blog
+github
+x
+linkedin
+youtube
+Powered by
+
+
+================================================================================
+URL: https://python.langchain.com/v0.2/docs/introduction/
+================================================================================
+LangChain overview - Docs by LangChain
+Skip to main content
+Docs by LangChain
+home page
+LangChain + LangGraph
+Search...
+⌘
+K
+Ask AI
+GitHub
+Try LangSmith
+Try LangSmith
+Search...
+Navigation
+LangChain overview
+LangChain
+LangGraph
+Deep Agents
+Integrations
+Learn
+Reference
+Contribute
+Python
+Overview
+Get started
+Install
+Quickstart
+Changelog
+Philosophy
+Core components
+Agents
+Models
+Messages
+Tools
+Short-term memory
+Streaming
+Structured output
+Middleware
+Overview
+Built-in middleware
+Custom middleware
+Advanced usage
+Guardrails
+Runtime
+Context engineering
+Model Context Protocol (MCP)
+Human-in-the-loop
+Multi-agent
+Retrieval
+Long-term memory
+Agent development
+LangSmith Studio
+Test
+Agent Chat UI
+Deploy with LangSmith
+Deployment
+Observability
+On this page
+Create an agent
+Core benefits
+LangChain overview
+Copy page
+LangChain is an open source framework with a pre-built agent architecture and integrations for any model or tool — so you can build agents that adapt as fast as the ecosystem evolves
+Copy page
+LangChain is the easiest way to start building agents and applications powered by LLMs. With under 10 lines of code, you can connect to OpenAI, Anthropic, Google, and
+more
+. LangChain provides a pre-built agent architecture and model integrations to help you get started quickly and seamlessly incorporate LLMs into your agents and applications.
+We recommend you use LangChain if you want to quickly build agents and autonomous applications. Use
+LangGraph
+, our low-level agent orchestration framework and runtime, when you have more advanced needs that require a combination of deterministic and agentic workflows, heavy customization, and carefully controlled latency.
+LangChain
+agents
+are built on top of LangGraph in order to provide durable execution, streaming, human-in-the-loop, persistence, and more. You do not need to know LangGraph for basic LangChain agent usage.
+​
+Create an agent
+Copy
+# pip install -qU langchain "langchain[anthropic]"
+from
+langchain.agents
+import
+create_agent
+def
+get_weather
+(
+city
+:
+str
+) ->
+str
+:
+"""Get weather for a given city."""
+return
+f
+"It's always sunny in
+{
+city
+}
+!"
+agent
+=
+create_agent(
+model
+=
+"claude-sonnet-4-5-20250929"
+,
+tools
+=
+[get_weather],
+system_prompt
+=
+"You are a helpful assistant"
+,
+)
+# Run the agent
+agent.invoke(
+{
+"messages"
+: [{
+"role"
+:
+"user"
+,
+"content"
+:
+"what is the weather in sf"
+}]}
+)
+See the
+Installation instructions
+and
+Quickstart guide
+to get started building your own agents and applications with LangChain.
+​
+Core benefits
+Standard model interface
+Different providers have unique APIs for interacting with models, including the format of responses. LangChain standardizes how you interact with models so that you can seamlessly swap providers and avoid lock-in.
+Learn more
+Easy to use, highly flexible agent
+LangChain’s agent abstraction is designed to be easy to get started with, letting you build a simple agent in under 10 lines of code. But it also provides enough flexibility to allow you to do all the context engineering your heart desires.
+Learn more
+Built on top of LangGraph
+LangChain’s agents are built on top of LangGraph. This allows us to take advantage of LangGraph’s durable execution, human-in-the-loop support, persistence, and more.
+Learn more
+Debug with LangSmith
+Gain deep visibility into complex agent behavior with visualization tools that trace execution paths, capture state transitions, and provide detailed runtime metrics.
+Learn more
+Edit this page on GitHub
+or
+file an issue
+.
+Connect these docs
+to Claude, VSCode, and more via MCP for real-time answers.
+Was this page helpful?
+Yes
+No
+Install LangChain
+Next
+⌘
+I
+Docs by LangChain
+home page
+github
+x
+linkedin
+youtube
+Resources
+Forum
+Changelog
+LangChain Academy
+Trust Center
+Company
+About
+Careers
+Blog
+github
+x
+linkedin
+youtube
+Powered by
+
