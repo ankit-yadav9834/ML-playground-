@@ -1,4 +1,16 @@
-# how we will integrate html file 
+## Building Url Dynamically 
+## variable rule 
+## Jinja  template Engine
+
+## Jinga 2 template engine 
+
+'''
+{{ }} expressions to print output in html 
+
+{%,,,%} condtionals , for loop
+{#.....#} this is for comments 
+
+'''
 
 from flask import Flask, render_template, request
 '''
@@ -35,3 +47,30 @@ def submit():
     if request.method== 'POST':
         name = request.form["name"]
         return f"Hello {name}"
+
+    return render_template('form.html')
+
+# Variable Rule
+@app.route('/successres/<int:score>')
+def successres(score):
+    res= ""
+    if score>= 50:
+        res= "PASS"
+
+    else:
+        res = "FAIL"
+        
+    exp = {'score:':score, "res":res}
+
+    return render_template('result1.html', results = exp)
+
+
+## Building URL dynamically 
+
+
+
+# this is the entry point of our flask / app
+if __name__ == "__main__":
+    app.run(debug= True) 
+# agat ham koi bhi change krte h code me toh
+# ye direcr server ko restart kr dega aur local host me changes dikhege
