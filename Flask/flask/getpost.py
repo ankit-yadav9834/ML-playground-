@@ -1,6 +1,6 @@
 # how we will integrate html file 
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 '''
 It creates an instance of the Flask class, 
 which will be our WSGI(Web Sever Gateway Interface) application
@@ -14,7 +14,7 @@ app = Flask(__name__)
 def welcome():
     return "<html>H1>Welconme to the flask playground"
 
-@app.route("/index")
+@app.route("/index", methods =['GET'])
 def index():
     return render_template('index.html')
 
@@ -22,6 +22,13 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method== 'POST':
+        name = request.form["name"]
+        return f"Hello {name}"
+
+    return render_template('form.html')
 
 # this is the entry point of our flask / app
 if __name__ == "__main__":
