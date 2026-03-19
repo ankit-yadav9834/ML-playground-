@@ -30,7 +30,7 @@ st.write(data)
 st.line_chart(data)
 data.to_csv("sampledataforStreamlit")
 
-# to upload file 
+# to upload file    
 
 uploaded_file = st.file_uploader("Chosse a CSV file ", type = "csv")
 
